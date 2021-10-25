@@ -7,8 +7,7 @@ library(rgee)
 
 
 # --------------------------------------------------------------
-# 1. Install rgee R dependencies
-# Initialize Earth Engine and Google Drive, both
+# 1. Initialize Earth Engine and Google Drive, both
 # credentials must come from the same account google account.
 # --------------------------------------------------------------
 ee_Initialize(user="ndef", drive = TRUE)
