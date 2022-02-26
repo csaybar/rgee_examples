@@ -4,12 +4,12 @@
 library(rgee)
 library(reticulate)
 
-ee_Initialize(user="ndef")
+ee_Initialize()
 
 # --------------------------------------------------------------
 # 1. Install and load a Python package
 # --------------------------------------------------------------
-install_python("ndvi2gif")
+py_install("ndvi2gif")
 ngif <- import("ndvi2gif")
 
 
@@ -44,7 +44,11 @@ myclass <- ngif$NdviSeasonality(
   sat = 'Sentinel', # 'Sentinel', 'Landsat', 'MODIS', 'sar'
   key = 'max' # 'max', 'median', 'perc_90'
 )
+
+# Estimate the median of the yearly composites from 2016 to 2020.
 median <- myclass$get_year_composite()$median()
+
+# Estimate the median of the winter season composites from 2016 to 2020.
 wintermax <- myclass$get_year_composite()$select('winter')$max()
 
 # --------------------------------------------------------------
