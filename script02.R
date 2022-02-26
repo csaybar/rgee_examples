@@ -10,7 +10,7 @@ library(rgee)
 # 1. Initialize Earth Engine and Google Drive, both
 # credentials must come from the same account google account.
 # --------------------------------------------------------------
-ee_Initialize(user="ndef", drive = TRUE)
+ee_Initialize(drive = TRUE)
 
 
 # --------------------------------------------------------------
@@ -59,7 +59,7 @@ pop_matrix %>%
     texture = create_texture("#FFFFFF", "#0800F0", "#FFFFFF", "#FFFFFF", "#FFFFFF")
   ) %>%
   plot_3d(
-    elmat,
+    pop_matrix,
     zoom = 0.55, theta = 0, zscale = 100, soliddepth = -24,
     solidcolor = "#525252", shadowdepth = -40, shadowcolor = "black",
     shadowwidth = 25, windowsize = c(800, 720)
