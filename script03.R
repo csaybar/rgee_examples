@@ -4,7 +4,7 @@
 library(rgee)
 library(cptcity)
 
-ee_Initialize(user="ndef")
+ee_Initialize()
 
 # --------------------------------------------------------------
 # 1. Load the SRTM ee$Image
