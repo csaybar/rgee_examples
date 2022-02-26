@@ -3,8 +3,11 @@
 
 library(rgee)
 library(rgeeExtra)
+library(reticulate)
 
 ee_Initialize()
+
+py_install(c("regex", "jsbeautifier")) 
 
 # ------------------------------------------------------------------------------
 # 1. Load a Javascript module
@@ -39,5 +42,4 @@ cmap <- c('blue', 'cyan', 'green', 'yellow', 'red')
 lmod <- list(min = 290, max = 320, palette = cmap)
 Map$centerObject(geometry)
 Map$addLayer(exImage$select('LST'), lmod, 'LST')
-
 
