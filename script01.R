@@ -2,6 +2,19 @@
 #' This script has all the essentials to install all the rgee R and Python dependencies.
 #' @author Angie Flores and Cesar Aybar
 
+# The following R packages must be installed in order to go through the Practicum section.
+install.packages('reticulate') # Connect Python with R.
+install.packages('rayshader') # 2D and 3D data visualizations in R.
+install.packages('remotes') # Install R packages from remote repositories.
+remotes::install_github('r-earthengine/rgeeExtra') # rgee extended.
+install.packages('sf') # Simple features in R.
+install.packages('stars') # Spatiotemporal Arrays and Vector Data Cubes.
+install.packages('geojsonio') # Convert data to 'GeoJSON' from various R classes.
+install.packages('raster') # Reading, writing, manipulating, analyzing and modeling of spatial data.
+install.packages('magick') # Advanced Graphics and Image-Processing in R
+install.packages('leaflet.extras2') # Extra Functionality for leaflet
+install.packages('cptcity') # colour gradients from the 'cpt-city' web archive
+
 # --------------------------------------------------------------
 # 1. Install rgee R dependencies
 # If you find a bug/error following this guide reported in:
