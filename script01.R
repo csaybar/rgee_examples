@@ -15,6 +15,7 @@ install.packages('magick') # Advanced Graphics and Image-Processing in R
 install.packages('leaflet.extras2') # Extra Functionality for leaflet
 install.packages('cptcity') # colour gradients from the 'cpt-city' web archive
 
+
 # --------------------------------------------------------------
 # 1. Install rgee R dependencies
 # If you find a bug/error following this guide reported in:
@@ -28,17 +29,61 @@ install.packages("rgee")
 library(rgee)
 ee_install() # Window user must need to terminate R and enter to R again.
 
-
 # --------------------------------------------------------------
 # 2.2 Load a Python ENV with the rgee requirements installed - OPTION 02
 # --------------------------------------------------------------
-# IMPORTANT: Change 'py_path' argument for your own Python PATH
+# IMPORTANT: Change 'py_path' argument according to your own Python PATH. 
+# Please choose just one option.
+
+## For Anaconda users - Windows OS
+win_py_path = paste0(
+  "C:/Users/UNICORN/AppData/Local/Programs/Python/",
+  "Python37/python.exe"
+)
 ee_install_set_pyenv(
-  py_path = "/home/pc-user01/.virtualenvs/rgee/bin/python",
+  py_path = win_py_path,
   py_env = "rgee" # Change it for your own Python ENV
-) 
-# Window user must need to terminate R and enter to R again.
-ee_check()
+)
+
+## For Miniconda users - Windows OS
+win_py_path = paste0(
+  "C:/Users/UNICORN/AppData/Local/r-miniconda/envs/rgee/",
+  "python.exe"
+)
+ee_install_set_pyenv(
+  py_path = win_py_path,
+  py_env = "rgee" # Change it for your own Python ENV
+)
+
+## For Miniconda users - Linux/MacOS users
+unix_py_path = paste0(
+  "/home/UNICORN/.local/share/r-miniconda/envs/",
+  "rgee/bin/python3"
+)
+ee_install_set_pyenv(
+  py_path = unix_py_path,
+  py_env = "rgee" # Change it for your own Python ENV
+)
+
+## For virtualenv users - Linux/MacOS users
+ee_install_set_pyenv(
+  py_path = "/home/UNICORN/.virtualenvs/rgee/bin/python",
+  py_env = "rgee" # Change it for your own Python ENV
+)
+
+## For Python root user - Linux/MacOS users
+ee_install_set_pyenv(
+  py_path = "/usr/bin/python3",
+  py_env = NULL, 
+  Renviron = "global" # Save ENV variables in the global .Renv file
+)
+
+ee_install_set_pyenv(
+  py_path = "/usr/bin/python3",
+  py_env = NULL, 
+  Renviron = "local" # Save ENV variables in a local .Renv file
+)
+
 
 # --------------------------------------------------------------
 # 3. Check out whether your Python and R requirements are properly set up.
@@ -55,8 +100,3 @@ ee_Initialize()
 # Initialize Earth Engine and GD
 ee_Initialize(drive = TRUE)
 
-# Initialize Earth Engine and GCS
-ee_Initialize(gcs = TRUE)
-
-# Initialize Earth Engine, GD and GCS
-ee_Initialize(drive = TRUE, gcs = TRUE)
