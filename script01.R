@@ -1,6 +1,6 @@
 #' Section 01: Installing rgee
 #' This script has all the essentials to install all the rgee R and Python dependencies.
-#' @author Angie Flores and Cesar Aybar
+#' @author Wendy Espinoza
 
 # The following R packages must be installed in order to go through the Practicum section.
 install.packages('reticulate') # Connect Python with R.
